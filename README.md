@@ -6,16 +6,17 @@
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/gocd-slack-server/blob/master/LICENSE)
 
 # What is this?
-gocd-slack-server is a ruby library for managing GitHub pull requests; purpose built for our continuous integration & deployment infrastructure at [Fittr®](http://www.fittr.com).
+gocd-slack-server is a standalone server that relays gocd information directly to slack.  *it is not a gocd plugin and relies on gocd's API for
+communication*
 
-# Selling points
-1.  It's easy to use
-2.  It has full code coverage on tests involving GitHub's API
-3.  While it uses the pull request interface on GitHub, **it does not use the big green button** to perform a merge.
+# Installation
+```sh
+#Setup
+sudo gem install gocd-slack-server
 
-# Basic usage
-```ruby
-require 'gocd-slack-server'
+#Run using a service hook with the name 'bot_name'
+gocd-slack-server "https://hooks.slack.com/services/..." "bot_name"
+```
 
 #Create a new gocd-slack-server object, each gocd-slack-server object targets (1) repository.
 gocd-slack-server = gocd-slack-server.new(user:"github_username", pass:"github_password", repo:"my_repository")
