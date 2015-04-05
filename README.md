@@ -1,12 +1,12 @@
-![pully: A ruby library for managing GitHub pull requests](https://raw.githubusercontent.com/sotownsend/pully/master/logo.png)
+![gocd-slack-server: A ruby library for managing GitHub pull requests](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/logo.png)
 
-[![Gem Version](https://badge.fury.io/rb/pully.svg)](http://badge.fury.io/rb/pully)
-[![Build Status](https://travis-ci.org/sotownsend/Pully.svg?branch=master)](https://travis-ci.org/sotownsend/Pully)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sotownsend/pully/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/pully/blob/master/LICENSE)
+[![Gem Version](https://badge.fury.io/rb/gocd-slack-server.svg)](http://badge.fury.io/rb/gocd-slack-server)
+[![Build Status](https://travis-ci.org/sotownsend/gocd-slack-server.svg?branch=master)](https://travis-ci.org/sotownsend/gocd-slack-server)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sotownsend/gocd-slack-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/gocd-slack-server/blob/master/LICENSE)
 
 # What is this?
-Pully is a ruby library for managing GitHub pull requests; purpose built for our continuous integration & deployment infrastructure at [Fittr®](http://www.fittr.com).
+gocd-slack-server is a ruby library for managing GitHub pull requests; purpose built for our continuous integration & deployment infrastructure at [Fittr®](http://www.fittr.com).
 
 # Selling points
 1.  It's easy to use
@@ -15,37 +15,37 @@ Pully is a ruby library for managing GitHub pull requests; purpose built for our
 
 # Basic usage
 ```ruby
-require 'pully'
+require 'gocd-slack-server'
 
-#Create a new pully object, each pully object targets (1) repository.
-pully = Pully.new(user:"github_username", pass:"github_password", repo:"my_repository")
+#Create a new gocd-slack-server object, each gocd-slack-server object targets (1) repository.
+gocd-slack-server = gocd-slack-server.new(user:"github_username", pass:"github_password", repo:"my_repository")
 
 #Get a list of all open pull requests (An array of pull numbers)
-open = pully.pull_requests
+open = gocd-slack-server.pull_requests
 
 #Get a list of all open pull requests marked as pending or success
-open_and_pending_or_success = pully.open_or_pending_pull_requests
+open_and_pending_or_success = gocd-slack-server.open_or_pending_pull_requests
 
 #Create a new pull request to merge 'my_branch' into 'master' with the title 'My pull request' and the message 'Hey XXX...'
-pull_number = pully.create_pull_request(from:"my_branch", to:"master", subject:"My pull request", message:"Hey XXXX, can you merge this for me?")
+pull_number = gocd-slack-server.create_pull_request(from:"my_branch", to:"master", subject:"My pull request", message:"Hey XXXX, can you merge this for me?")
 
 #Comment on that pull request
-pully.write_comment_to_pull_request(pull_number, "Test Comment")
+gocd-slack-server.write_comment_to_pull_request(pull_number, "Test Comment")
 
 #Get all comments
-comments = pully.comments_for_pull_request(pull_number)
+comments = gocd-slack-server.comments_for_pull_request(pull_number)
 
 #Get the SHA of the 'from' branch of a certain pull request
-pully.sha_for_pull_request(pull_number)
+gocd-slack-server.sha_for_pull_request(pull_number)
 
 #Set the status of a pull request to pending (Other options include 'error', 'failed', and 'success')
-pully.set_pull_request_status(pull_number, "pending")
+gocd-slack-server.set_pull_request_status(pull_number, "pending")
 
 #Set the status of a pull request to ready
-pully.set_pull_request_status(pull_number, "success")
+gocd-slack-server.set_pull_request_status(pull_number, "success")
 
 #Merge the request (Will NOT use GitHub's pull request merge, will merge commits into history as-is)
-pully.merge_pull_request(pull_number)
+gocd-slack-server.merge_pull_request(pull_number)
 ```
 
 # Organization Repositories
@@ -53,8 +53,8 @@ If your repositories are not owner by you, i.e. they are owned by an organizatio
 pass the `owner` field for the other individual or organization.
 
 ```ruby
-#Create a new pully object, each pully object targets (1) repository in an organization.
-pully = Pully.new(user:"github_username", pass:"github_password", repo:"my_repository", owner:"my_organization")
+#Create a new gocd-slack-server object, each gocd-slack-server object targets (1) repository in an organization.
+gocd-slack-server = gocd-slack-server.new(user:"github_username", pass:"github_password", repo:"my_repository", owner:"my_organization")
 
 ```
 
@@ -70,7 +70,7 @@ pully = Pully.new(user:"github_username", pass:"github_password", repo:"my_repos
 
 ## Installation
 
-Run `sudo gem install pully`
+Run `sudo gem install gocd-slack-server`
 
 ## Known issues
 
@@ -83,9 +83,9 @@ Run `sudo gem install pully`
 
 ## FAQ
 
-### When should I use pully?
+### When should I use gocd-slack-server?
 
-When you want to automate GitHub pull requests.  Pully provides the necessary facilities for you to authenticate and control GitHub pull requests in
+When you want to automate GitHub pull requests.  gocd-slack-server provides the necessary facilities for you to authenticate and control GitHub pull requests in
 any way you wish.  Duplicate the functionality of many popular CI solutions.
 
 ### What's Fittr?
@@ -100,4 +100,4 @@ Fittr is a SaaS company that focuses on providing personalized workouts and heal
 
 ## License
 
-pully is released under the MIT license. See LICENSE for details.
+gocd-slack-server is released under the MIT license. See LICENSE for details.
