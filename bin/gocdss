@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'gocdss'
+require 'gocd-slack-server'
 
 gocd_addr = ARGV[0]
 slack_hook = ARGV[1]

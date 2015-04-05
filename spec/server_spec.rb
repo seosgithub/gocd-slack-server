@@ -1,4 +1,4 @@
-require 'gocdss'
+require 'gocd-slack-server'
 require 'json'
 
 RSpec.describe "Server" do
