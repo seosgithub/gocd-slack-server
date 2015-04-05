@@ -1,12 +1,23 @@
 ![gocd-slack-server: A ruby library for managing GitHub pull requests](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/logo.png)
 
-[![Gem Version](https://badge.fury.io/rb/gocd-slack-server.svg)](http://badge.fury.io/rb/gocd-slack-server)
-[![Build Status](https://travis-ci.org/sotownsend/gocd-slack-server.svg?branch=master)](https://travis-ci.org/sotownsend/gocd-slack-server)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sotownsend/gocd-slack-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-[![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/gocd-slack-server/blob/master/LICENSE)
+![Gem Version](https://badge.fury.io/rb/gocd-slack-server.svg)](http://badge.fury.io/rb/gocd-slack-server)
+![Build Status](https://travis-ci.org/sotownsend/gocd-slack-server.svg?branch=master)](https://travis-ci.org/sotownsend/gocd-slack-server)
+![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sotownsend/gocd-slack-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/gocd-slack-server/blob/master/LICENSE)
 
 # What is this?
-gocd-slack-server was purpose built for Fittr® to provide information from our gocd server to our slack channel.  This is a standalone server that relays gocd information directly to slack.  **It is not a gocd plugin and relies on gocd's API for communication**
+gocd-slack-server was purpose built for Fittr® to provide information from our gocd server to our slack channel.  This is a standalone server that relays gocd information directly to slack.  **It is not a gocd plugin and relies on gocd's API for communication**.  Currently will monitor all pipelines for activity.
+
+# What it looks like
+
+Failing will post a random fail gif
+![Fail](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/fail.gif)
+
+Passing
+![Pass](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/pass.gif)
+
+Cancelling
+![Cancelled](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/cancelled.gif)
 
 # What's gocd?
 [Go | Continuous Deployment](http://www.go.cd/) is a free and open source deployment server.
