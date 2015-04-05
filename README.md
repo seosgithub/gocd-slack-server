@@ -10,13 +10,13 @@ gocd-slack-server was purpose built for Fittr® to provide information from our 
 
 # What it looks like
 
-Failing will post a random fail gif
+###Failing will post a random fail gif
 ![Fail](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/fail.gif)
 
-Passing
+###Passing
 ![Pass](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/pass.gif)
 
-Cancelling
+###Cancelling
 ![Cancelled](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/cancelled.gif)
 
 # What's gocd?
