@@ -21,8 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake", "~> 10.3"
   spec.add_development_dependency "rspec", "~> 3.2"
-  spec.add_runtime_dependency "thor", "~> 0.19"
-  spec.add_runtime_dependency "ghee", "~> 0.12.17"
-  spec.add_runtime_dependency "octokit", "~> 3.0"
-  spec.add_runtime_dependency "git", "~> 1.2.9.1"
+  spec.add_runtime_dependency "activesupport", "~> 4.2.1"
 end

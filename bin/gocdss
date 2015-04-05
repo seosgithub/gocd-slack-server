@@ -1,3 +1,27 @@
+#!/usr/bin/env ruby
 require 'gocdss'
 
-puts "hello world"
+gocd_addr = ARGV[0]
+slack_hook = ARGV[1]
+bot_name = ARGV[2]
+user_pass = ARGV[3]
+
+def usage
+  puts "-------------------------------------------------------------------------------------------"
+  puts "usage:"
+  puts "\t(sh)>gocdss 'http://localhost:5832' 'https://hooks.slack.com/services/abo3ot' my_bot_name"
+  puts "\t(sh)>gocdss 'http://localhost:5832' 'https://hooks.slack.com/services/abo3ot' my_bot_name user:pass"
+  puts "-------------------------------------------------------------------------------------------"
+end
+usage unless gocd_addr and slack_hook and bot_name
+
+server = Gocdss::Server.new gocd_addr: gocd_addr, slack_hook: slack_hook, bot_name: bot_name, user_pass:user_pass
+server.start
+
+#require 'json'
+#events = JSON.parse(File.read "./spec/assets/merge_failed")
+
+#loop do
+  #server.process_event events.shift
+  #break if events.empty?
+#end
