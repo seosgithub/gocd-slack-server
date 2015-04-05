@@ -6,8 +6,7 @@
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/gocd-slack-server/blob/master/LICENSE)
 
 # What is this?
-gocd-slack-server was purpose built for Fittr®to provide information from our gocd server to our slack channel.  This is a standalone server that relays gocd information directly to slack.  *it is not a gocd plugin and relies on gocd's API for
-communication*
+gocd-slack-server was purpose built for Fittr® to provide information from our gocd server to our slack channel.  This is a standalone server that relays gocd information directly to slack.  **It is not a gocd plugin and relies on gocd's API for communication**
 
 # What's gocd?
 [Go | Continuous Deployment](http://www.go.cd/) is a free and open source deployment server.
