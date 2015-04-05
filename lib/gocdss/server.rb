@@ -1,0 +1,2 @@
+module Gocdss
+end

@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'gocd_slack_server/version'
+require 'gocdss/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "gocd-slack-server"
-  spec.version       = GoCDSlackServer::VERSION
+  spec.version       = Gocdss::VERSION
   spec.authors       = ["Seo Townsend"]
   spec.email         = ["seotownsend@icloud.com"]
   spec.summary       = %q{This is a standalone server that relays gocd information directly to slack}

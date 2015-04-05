@@ -1,3 +1,0 @@
-module GoCDSlackServer
-  VERSION = "0.0.2"
-end
