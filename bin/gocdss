@@ -12,6 +12,7 @@ def usage
   puts "\t(sh)>gocdss 'http://localhost:5832' 'https://hooks.slack.com/services/abo3ot' my_bot_name"
   puts "\t(sh)>gocdss 'http://localhost:5832' 'https://hooks.slack.com/services/abo3ot' my_bot_name user:pass"
   puts "-------------------------------------------------------------------------------------------"
+  exit 1
 end
 usage unless gocd_addr and slack_hook and bot_name
 
