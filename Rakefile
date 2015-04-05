@@ -31,6 +31,6 @@ task :push do
   `git push`
   `git tag #{version}`
   `git push origin #{version}`
-  `gem build gocd_slack_server.gemspec`
-  `gem push gocd_slack_server-#{version}.gem`
+  `gem build gocd-slack-server.gemspec`
+  `gem push gocd-slack-server-#{version}.gem`
 end
