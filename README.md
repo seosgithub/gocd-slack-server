@@ -6,57 +6,19 @@
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/sotownsend/gocd-slack-server/blob/master/LICENSE)
 
 # What is this?
-gocd-slack-server is a standalone server that relays gocd information directly to slack.  *it is not a gocd plugin and relies on gocd's API for
+gocd-slack-server was purpose built for Fittr®to provide information from our gocd server to our slack channel.  This is a standalone server that relays gocd information directly to slack.  *it is not a gocd plugin and relies on gocd's API for
 communication*
+
+# What's gocd?
+[Go | Continuous Deployment](http://www.go.cd/) is a free and open source deployment server.
 
 # Installation
 ```sh
 #Setup
 sudo gem install gocd-slack-server
 
-#Run using a service hook with the name 'bot_name'
-gocd-slack-server "https://hooks.slack.com/services/..." "bot_name"
-```
-
-#Create a new gocd-slack-server object, each gocd-slack-server object targets (1) repository.
-gocd-slack-server = gocd-slack-server.new(user:"github_username", pass:"github_password", repo:"my_repository")
-
-#Get a list of all open pull requests (An array of pull numbers)
-open = gocd-slack-server.pull_requests
-
-#Get a list of all open pull requests marked as pending or success
-open_and_pending_or_success = gocd-slack-server.open_or_pending_pull_requests
-
-#Create a new pull request to merge 'my_branch' into 'master' with the title 'My pull request' and the message 'Hey XXX...'
-pull_number = gocd-slack-server.create_pull_request(from:"my_branch", to:"master", subject:"My pull request", message:"Hey XXXX, can you merge this for me?")
-
-#Comment on that pull request
-gocd-slack-server.write_comment_to_pull_request(pull_number, "Test Comment")
-
-#Get all comments
-comments = gocd-slack-server.comments_for_pull_request(pull_number)
-
-#Get the SHA of the 'from' branch of a certain pull request
-gocd-slack-server.sha_for_pull_request(pull_number)
-
-#Set the status of a pull request to pending (Other options include 'error', 'failed', and 'success')
-gocd-slack-server.set_pull_request_status(pull_number, "pending")
-
-#Set the status of a pull request to ready
-gocd-slack-server.set_pull_request_status(pull_number, "success")
-
-#Merge the request (Will NOT use GitHub's pull request merge, will merge commits into history as-is)
-gocd-slack-server.merge_pull_request(pull_number)
-```
-
-# Organization Repositories
-If your repositories are not owner by you, i.e. they are owned by an organization or another user who has granted you permissions, you will need to
-pass the `owner` field for the other individual or organization.
-
-```ruby
-#Create a new gocd-slack-server object, each gocd-slack-server object targets (1) repository in an organization.
-gocd-slack-server = gocd-slack-server.new(user:"github_username", pass:"github_password", repo:"my_repository", owner:"my_organization")
-
+#Run using a service hook with the name 'bot_name' for the gocd server installed on localhost at 8513
+gocd-slack-server "http://localhost:8153" https://hooks.slack.com/services/..." "bot_name"
 ```
 
 ## Requirements
@@ -69,25 +31,13 @@ gocd-slack-server = gocd-slack-server.new(user:"github_username", pass:"github_p
 - If you **have a feature request**, submit a pull request.
 - If you **want to contribute**, submit a pull request.
 
-## Installation
-
-Run `sudo gem install gocd-slack-server`
-
-## Known issues
-
-1. GitHub does not register commits immediately after a push is received. Things like `sha_for_pull_request` will return old values if you don't wait
-   several seconds
-2. GitHub's status API for pull requests returns 'pending' even if the UI says 'success'. We account for this bug, but if it is fixed in the future,
-   then our specs will catch it
-
 ---
 
 ## FAQ
 
 ### When should I use gocd-slack-server?
 
-When you want to automate GitHub pull requests.  gocd-slack-server provides the necessary facilities for you to authenticate and control GitHub pull requests in
-any way you wish.  Duplicate the functionality of many popular CI solutions.
+When you want to announce to slack users what gocd is up to
 
 ### What's Fittr?
 
