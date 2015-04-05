@@ -27,7 +27,7 @@ end
 task :push do
   version = upgrade_version
   `git add .`
-  `git commit -a -m 'gem #{version}' .`
+  `git commit -a -m 'gem #{version}'`
   `git push`
   `git tag #{version}`
   `git push origin #{version}`
