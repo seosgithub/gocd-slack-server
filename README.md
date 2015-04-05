@@ -17,7 +17,7 @@ gocd-slack-server was purpose built for Fittr® to provide information from our 
 sudo gem install gocd-slack-server
 
 #Run using a service hook with the name 'bot_name' for the gocd server installed on localhost at 8513
-gocd-slack-server "http://localhost:8153" https://hooks.slack.com/services/..." "bot_name"
+gocdss http://localhost:8153" https://hooks.slack.com/services/..." "bot_name"
 ```
 
 ## Requirements
