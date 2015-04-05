@@ -42,6 +42,7 @@ gocdss <gocd_hostname> <slack_hook_url> <bot_name> [<user>:<pass>]
 
 ## Requirements
 
+- curl
 - Ruby 2.1 or Higher
 
 ## Communication
