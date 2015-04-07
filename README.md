@@ -1,6 +1,5 @@
 ![gocd-slack-server: A ruby library for managing GitHub pull requests](https://raw.githubusercontent.com/sotownsend/gocd-slack-server/master/logo.png)
 
-[![gocd-slack-server Downloads](http://www.gemetric.me/images/gocd-slack-server.gif)](https://rubygems.org/gems/gocd-slack-server)
 [![Gem Version](https://badge.fury.io/rb/gocd-slack-server.svg)](http://badge.fury.io/rb/gocd-slack-server)
 [![Build Status](https://travis-ci.org/sotownsend/gocd-slack-server.svg?branch=master)](https://travis-ci.org/sotownsend/gocd-slack-server)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sotownsend/gocd-slack-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
