@@ -36,12 +36,12 @@ module Gocdss
         rev_info
       end
 
-      if @known_events[label]
-        last_jobs = @known_events[label]["jobs"]
+      if @known_events[label+name]
+        last_jobs = @known_events[label+name]["jobs"]
         jobs = get_jobs(e)
 
         if jobs != last_jobs
-          @known_events[label]["jobs"] = jobs
+          @known_events[label+name]["jobs"] = jobs
 
           changed_jobs = jobs - last_jobs
           changed_jobs.each do |job|
@@ -49,12 +49,12 @@ module Gocdss
           end
         end
       else
-        @known_events[label] = {}
-        @known_events[label]["commits"] = revisions
-        @known_events[label]["name"] = name
-        @known_events[label]["label"] = label
-        @known_events[label]["jobs"] = get_jobs(e)
-        notify_pipeline_start @known_events[label]
+        @known_events[label+name] = {}
+        @known_events[label+name]["commits"] = revisions
+        @known_events[label+name]["name"] = name
+        @known_events[label+name]["label"] = label
+        @known_events[label+name]["jobs"] = get_jobs(e)
+        notify_pipeline_start @known_events[label+name]
       end
     end
 
@@ -80,6 +80,7 @@ module Gocdss
     end
 
     def start
+      @notifications_enabled = false
       loop do
         sleep 3
 
@@ -96,6 +97,9 @@ module Gocdss
             process_event event
           end
         end
+
+        #Enable first time around, but just keep it true forever after
+        @notifications_enabled = true
       end
     end
 
@@ -148,6 +152,7 @@ module Gocdss
     end
 
     def slack(title:, text:, link:, color:)
+      return unless @notifications_enabled
       payload = {text: text, color: color, title: title, title_link: link, mrkdwn_in: ["text"]}
       @notifier.ping "", attachments: [payload]
     end
