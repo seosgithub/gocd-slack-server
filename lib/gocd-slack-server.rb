@@ -84,8 +84,7 @@ module Gocdss
         sleep 3
 
         pipelines = Hash.from_xml(`curl -u #{@user_pass} #{@gocd_addr}/go/api/pipelines.xml`)
-        pipeline_names = pipelines["pipelines"].flatten.select{|e| e["href"] =~ /api\/pipelines\/.*\/stages.xml/}.map{|e| e["href"]}.map{|e| e.scan /pipelines\/(.*)\/stages.xml/}.flatten
-
+        pipeline_names = pipelines["pipelines"]["pipeline"].map{|e| e["href"]}.map{|e| e.scan(/pipelines\/(.*)\/stages.xml/)}.flatten
         pipeline_names.each do |pipe_name|
           if @user_pass
             hash = JSON.parse(`curl -u #{@user_pass} #{@gocd_addr}/go/api/pipelines/#{pipe_name}/history 2>/dev/null`)
